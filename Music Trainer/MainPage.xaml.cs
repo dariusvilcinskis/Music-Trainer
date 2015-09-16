@@ -18,6 +18,11 @@ namespace Music_Trainer
             {
                 Vm.RunClock();
             };
+
+            var wav = await StorageFile.GetFileFromApplicationUriAsync(new Uri("ms-appx:///Soundbank/Guitar/shit.mp3"));
+            var player = new AudioPlayer();
+            await player.LoadFileAsync(wav);
+            player.Play("shit.mp3", 0.5);
         }
 
         private void SystemNavigationManagerBackRequested(object sender, BackRequestedEventArgs e)
